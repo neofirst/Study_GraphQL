@@ -1,0 +1,36 @@
+type data {
+  id: Int!
+  email: String!
+  nick: String!
+}
+
+type updateData {
+  id: Int!
+  nick: String!
+}
+
+type deleteData {
+  id: Int!
+}
+
+type mataData {
+  fieldCount: Int!
+  affectedRows: Int!
+  insertId: Int!
+  info: String!
+  serverStatus: Int!
+  warningStatus: Int!
+}
+
+type Query {
+  selectTest(id: Int!, nick: String!): [data]!
+
+  insertTest(id: Int!, email: String!, nick: String!): Boolean
+  #insertTest(id: Int!, email: String!, nick: String!): updateData
+
+  updateTest(id: Int!, nick: String!): Boolean
+  # updateTest(id: Int!, nick: String!): updateData
+
+  deleteTest(id: Int!): Boolean
+  # deleteTest(id: Int!): deleteData
+}

@@ -1,0 +1,18 @@
+type data {
+  id: Int!
+  email: String!
+  nick: String!
+}
+
+type mataData {
+  fieldCount: Int!
+  affectedRows: Int!
+  insertId: Int!
+  info: String!
+  serverStatus: Int!
+  warningStatus: Int!
+}
+
+type Query {
+  proceducreTest(id: Int!): [data]!
+}

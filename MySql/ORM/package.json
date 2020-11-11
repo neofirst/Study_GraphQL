@@ -1,0 +1,19 @@
+{
+  "name": "graphql",
+  "version": "1.0.0",
+  "description": "GraphQL with MySQL",
+  "main": "index.js",
+  "repository": "",
+  "author": "hide",
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-node": "^0.0.1-security",
+    "graphql-yoga": "^1.18.3",
+    "mysql2": "^2.1.0",
+    "sequelize": "^4.38.0"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js"
+  }
+}
