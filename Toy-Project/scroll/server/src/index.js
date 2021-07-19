@@ -32,22 +32,36 @@ const app = express();
 
 // cors 방법2
 // 2.x 버전 및 3.x 버전 cors
-const corsOptions = {
-  origin(origin, callback) {
-      callback(null, true);
-  },
-  credentials: true
-};
-app.use(cors(corsOptions));
-var allowCrossDomain = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type,token');
-  next();
-}
-app.use(allowCrossDomain);
+// case 1
+// const corsOptions = {
+//   origin(origin, callback) {
+//       callback(null, true);
+//   },
+//   credentials: true
+// };
+// app.use(cors(corsOptions));
+// var allowCrossDomain = function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type,token');
+//   next();
+// }
+// app.use(allowCrossDomain);
 
-server.applyMiddleware({ app, path: '/graphql' });
-app.listen(8000, () => {
-  console.log('server listening on 8000...');
-})
+// server.applyMiddleware({ app, path: '/graphql' });
+// app.listen(8000, () => {
+//   console.log('server listening on 8000...');
+// })
+
+// case 2
+server.applyMiddleware({
+   app, 
+   path: '/graphql',
+   cors: {
+        origin: 'http://localhost:3000',
+        credentials: true,
+      } 
+  });
+
+await app.listen({port : 8000 });
+console.log('server listening on 8000...');
