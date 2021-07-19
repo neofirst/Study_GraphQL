@@ -1,0 +1,1 @@
+1. yarn add graphql graphql-request graphql-tag graphql-query
